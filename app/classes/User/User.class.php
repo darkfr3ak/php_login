@@ -125,4 +125,10 @@ class User {
         return $this->isLoggedIn;
     }
 
+    public function getUserInfo() {
+        $ret = $this->_db->get('users_info', array('info_user_id', '=', $this->data()->id));
+        $result = $ret->first();
+        return $result;
+    }
+
 }
