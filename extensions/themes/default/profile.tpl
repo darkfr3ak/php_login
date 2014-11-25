@@ -15,5 +15,4 @@
         </div>
     </div>
 </div>
-{{$friends}}
 @ $this->inc('footer');
