@@ -12,6 +12,7 @@ if (!$user->isLoggedIn()) {
 }
 
 $templum->setVar('email', escape($user->data()->email));
+$templum->setVar('name', escape($user->data()->name));
 
 if (Input::exists()) {
     if (Token::check(Input::get('token'))) {
