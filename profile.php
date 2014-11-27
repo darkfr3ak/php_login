@@ -15,15 +15,12 @@ if (!$profile = Input::get('user')) {
     } else {
         $data = $user->data();
         $userinfo = $user->getUserInfo();
-        /*
-          if ($data->username != $username) {
-          $friends = $user->getFriends($username, $data->username);
-          $templum->setVar("friends", '');
-          } else {
-          $templum->setVar("friends", "");
-          }
-         *
-         */
+
+        $friend = Friends::getInstance();
+        $friend::getAllFriends();
+        $templum->setVar("friendsCount", count($friend::getAllFriends()));
+        $friends = $friend::getAllFriends();
+        $templum->setVar('friends', $friends);
         $templum->setVar('uname', escape($data->username));
         $templum->setVar('name', escape($data->name));
         $templum->setVar('email', escape($data->email));

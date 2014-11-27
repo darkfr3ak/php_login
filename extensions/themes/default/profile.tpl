@@ -15,4 +15,14 @@
         </div>
     </div>
 </div>
+<div class="[ col-sm-6 col-md-4 ]">
+    Freunde ({{$friendsCount}})
+    <ul class="list-unstyled">
+        @if (count($friends) > 0):
+        @foreach ($friends as $friend):
+        <li><a href="profile.php?user={{$friend['username']}}">{{$friend['username']}} ({{$friend['name']}})</a></li>
+        @endforeach
+        @endif
+    </ul>
+</div>
 @ $this->inc('footer');

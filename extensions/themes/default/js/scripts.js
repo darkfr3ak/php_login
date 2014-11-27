@@ -53,3 +53,4 @@ $("input[type=password]").keyup(function () {
         $("#pwmatch").css("color", "#FF0004");
     }
 });
+

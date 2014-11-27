@@ -15,9 +15,13 @@ class Messages {
 
     private static $db;
     private static $instance;
+    private static $messages = array();
+    private static $user;
 
     private function __construct() {
         self::$db = DB::getInstance();
+        $user = new User();
+        self::$user = $user->data()->id;
     }
 
     public static function getInstance() {
@@ -25,6 +29,28 @@ class Messages {
             self::$instance = new self;
         }
         return self::$instance;
+    }
+
+    public static function sendMessage($messageData = array()) {
+        if (!self::$db->insert('messages', $messageData)) {
+            throw new Exception('Sorry, there was a problem sending your Message!');
+        }
+    }
+
+    public static function getMessages($type = 'new') {
+
+    }
+
+    public static function getMessage($messageID) {
+
+    }
+
+    public static function deleteMessage($messageID) {
+
+    }
+
+    public static function markRead($message) {
+
     }
 
 }

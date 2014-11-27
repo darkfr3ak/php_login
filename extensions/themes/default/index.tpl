@@ -1,11 +1,7 @@
 @ $this->inc('header');
 @if ($logged_in == 'yes'):
-<h3>Hello, <a href="profile.php?user={{$username}}">{{$username}}</h3>
+<h4>Hello, <a href="profile.php?user={{$username}}">{{$username}}</a></h4>
 
-<ul>
-    <li><a href="update.php">Update Profile</a></li>
-    <li><a href="changepassword.php">Change Password</a></li>
-</ul>
 @else:
 <p>You need to login or <a href="#signin" data-toggle="modal" data-target=".bs-modal-sm">register</a>.</p>
 <!-- Modal -->
